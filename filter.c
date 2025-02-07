@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:02:31 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/04 13:50:06 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/07 17:56:37 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,13 @@ void checking_digit(char *str)
         {
             if (str[i] != '+' && str[i] != '-' && str[i] != ' ')
             {
-                printf("error\n");
+                write(1,"error\n",6);
+                free(str);
                 exit(1);
             }
         }
         i++;
     }
-    printf("digit nadi\n");
-    
 }
 void checking_sin(char *str)
 {
@@ -43,18 +42,19 @@ void checking_sin(char *str)
         {
             if(str[i + 1] == '+' || str[i + 1] == '-')
             {
-                printf("sin error\n");
+                write(1,"error\n",6);
+                free(str);
                 exit(1);
             }
         }else if(str[i] == '+' || str[i] == '-')
         {
             if (str[i + 1] == ' ' || str[i + 1] == '\0')
             {
-                printf("sin error\n");
+                write(1,"error\n",6);
+                free(str);
                 exit(1);
             }
         }
         i++;
     }
-    printf("sin nadi\n");
 }
