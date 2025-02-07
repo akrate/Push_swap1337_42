@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:45:06 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/07 18:02:04 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/07 20:50:57 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,18 @@ int main(int ac,char **av)
     stack_a = NULL;
      
     char *str = arg_accumulation(ac,av);
-    checking_digit(str);
-    checking_sin(str);
     char **strnbr = ft_split(str);
     int i = 0;
     while (strnbr[i] != NULL)
     {
         number = ft_atoi(strnbr[i]);
-        ft_lstadd_back(&stack_a,number);
+        if (ft_lstadd_back(&stack_a,number) == 1)
+        {
+            free(str);
+            free(stack_a);
+            free(strnbr);
+            exit (1);
+        }
         i++;
     }
     printflst(stack_a);

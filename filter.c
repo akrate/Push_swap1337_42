@@ -6,13 +6,13 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:02:31 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/07 17:56:37 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/07 20:52:57 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void checking_digit(char *str)
+int checking_digit(char *str)
 {
     int i;
     
@@ -24,14 +24,14 @@ void checking_digit(char *str)
             if (str[i] != '+' && str[i] != '-' && str[i] != ' ')
             {
                 write(1,"error\n",6);
-                free(str);
-                exit(1);
+                return (1);
             }
         }
         i++;
     }
+    return (0);
 }
-void checking_sin(char *str)
+int checking_sin(char *str)
 {
     int i;
 
@@ -43,18 +43,18 @@ void checking_sin(char *str)
             if(str[i + 1] == '+' || str[i + 1] == '-')
             {
                 write(1,"error\n",6);
-                free(str);
-                exit(1);
+                return (1);
             }
         }else if(str[i] == '+' || str[i] == '-')
         {
             if (str[i + 1] == ' ' || str[i + 1] == '\0')
             {
                 write(1,"error\n",6);
-                free(str);
-                exit(1);
+                return (1);
             }
         }
         i++;
     }
+    return (0);
+    
 }

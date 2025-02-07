@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:34:09 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/07 18:10:14 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/07 20:33:14 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,31 @@
 //     }
 // }
 
-void	ft_lstadd_back(t_list **lst, int data)
+int	ft_lstadd_back(t_list **lst, int data)
 {
     t_list *new;
 
      new = ft_lstnew(data);
     if (*lst == NULL || lst == NULL)
-    {
         *lst = new;
-    }
     else
     {
         t_list *current = *lst;
         while (current->next != NULL)
         {
+            if(data == current->content)
+            {
+                write(2, "Error\n", 6);
+                return (1);
+            }
             current = current->next; 
         }
+        if(data == current->content)
+            {
+                write(2, "Error\n", 6);
+                return (1);
+            }
         current->next = new;
     }
+    return (0);
 }

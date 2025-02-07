@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:25:27 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/04 13:50:36 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/07 20:57:00 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,18 @@ static int countline_arg(int ac,char **av)
     } 
     return (count);
 }
+int filter(char *str)
+{
+    if (checking_digit(str) == 1)
+    {
+        return (1);
+    }
+    if (checking_sin(str) == 1)
+    {
+        return (1);
+    }
+    return (0);
+}
 char *arg_accumulation(int ac,char **av)
 {
     int i;
@@ -48,15 +60,16 @@ char *arg_accumulation(int ac,char **av)
     {
         j = 0;
         while(av[i][j])
-        {
-            str[index] = av[i][j];
-            index++;
-            j++;
-        }
+            str[index++] = av[i][j++];
         if (i < ac - 1)
             str[index++] = ' ';
         i++;
     } 
     str[index] = '\0';
+    if(filter(str) == 1)
+    {
+        free(str);
+        exit (1);
+    }
     return (str);
 }

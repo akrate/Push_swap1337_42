@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:28:12 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/07 18:01:37 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/07 20:52:48 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 
 typedef struct l_list
 {
@@ -24,11 +25,11 @@ typedef struct l_list
 }   t_list;
 
 char *arg_accumulation(int ac,char **av);
-void checking_digit(char *str);
-void checking_sin(char *str);
+int checking_digit(char *str);
+int checking_sin(char *str);
 int ft_atoi(const char *str);
 char	**ft_split(char const *s);
-void	ft_lstadd_back(t_list **lst, int data);
+int	ft_lstadd_back(t_list **lst, int data);
 t_list	*ft_lstnew(int content);
 void printflst(t_list *lst);
 
