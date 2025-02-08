@@ -6,12 +6,35 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:25:27 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/07 20:57:00 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/08 10:00:03 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+static void ft_null(char *str)
+{
+    int i;
+    int check;
+    
+    check = 0;
+    i = 0;
+    if (str[i] == '\0')
+    {
+        write(2,"Erorr\n",6);
+        exit (1);
+    }
+    while (str[i])
+    {
+        if(str[i] != ' ')
+            check = 1;
+        i++;
+    }
+    if(check == 0)
+    {
+        write(2,"Erorr\n",6);
+        exit (1);
+    }
+}
 static int countline_arg(int ac,char **av)
 {
     int i;
@@ -22,7 +45,8 @@ static int countline_arg(int ac,char **av)
     count = 0;
     while(i < ac)
     {
-        j = 0;
+        j = 0; 
+        ft_null(av[i]); 
         while(av[i][j])
         {
             j++;
