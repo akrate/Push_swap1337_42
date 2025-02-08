@@ -6,65 +6,52 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:34:09 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/07 20:33:14 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/08 11:50:23 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// static t_list	*ft_lstlast(t_list *lst)
-// {
-//     if (lst == NULL)
-//         return (NULL);
-//     while (lst->next != NULL)
-//     {
-//         lst = lst->next;
-//     }
-//     return (lst);
-// }
-// void	ft_lstadd_back(t_list **lst, int data)
-// {
-//     // if (lst == NULL || new == NULL)
-//     //     return ;
-//     t_list *new;
+void free_error(t_list **lst,char **split,char *str)
+{
+    t_list *current = *lst;  
+    t_list *next_node;
+    int i = 0;
+        while (current != NULL)
+        {
+            next_node = current->next;
+            free(current);
+            current = next_node; 
+        }
+        while (split[i])
+        {
+            free(split[i]);
+            i++;
+        }
+        free(split);
+        free(str);
+        write(2, "Error\n", 6);
+        exit (1);   
+}
 
-//     new = ft_lstnew(data);
-//     if(*lst == NULL)
-//         *lst = new;
-//     else{
-//     //    ft_lstlast(*lst)->next = new;
-//     while(lst)
-//     {
-        
-//     }
-//     }
-// }
-
-int	ft_lstadd_back(t_list **lst, int data)
+void	ft_lstadd_back(t_list **lst, int data)
 {
     t_list *new;
 
      new = ft_lstnew(data);
-    if (*lst == NULL || lst == NULL)
+    if (*lst == NULL)
         *lst = new;
     else
     {
         t_list *current = *lst;
         while (current->next != NULL)
         {
-            if(data == current->content)
-            {
-                write(2, "Error\n", 6);
-                return (1);
-            }
+            // if(data == current->content)
+            //     free_error(lst ,split, str);
             current = current->next; 
         }
-        if(data == current->content)
-            {
-                write(2, "Error\n", 6);
-                return (1);
-            }
+        // if(data == current->content)
+        //     free_error(lst ,split ,str);
         current->next = new;
     }
-    return (0);
 }
