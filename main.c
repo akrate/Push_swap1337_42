@@ -6,36 +6,45 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:45:06 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/08 11:51:32 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/08 14:08:07 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_duplicate_before_add(char **strnbr, int i, int new_data)
+int check_duplicate_before_add(char **strnbr, int i, long new_data)
 {
     int j = 0;
     while ( j < i)
     {
         if (new_data == ft_atoi(strnbr[j]))
         {
-            return 1; 
+            return (1); 
+        }
+        if (new_data < INT_MIN || new_data > INT_MAX)
+        {
+            return (1);
         }
          j++;
     }
-    return 0;
+    return (0);
 }
 int main(int ac,char **av)
 {
    if (ac > 1)
    {
         t_list *stack_a;
-        int number;
+        long number;
     
         stack_a = NULL;
          
         char *str = arg_accumulation(ac,av);
         char **strnbr = ft_split(str);
+        if (strnbr == NULL)
+        {
+            free(str);
+            exit (1);
+        }
         int i = 0;
         while (strnbr[i] != NULL)
         {

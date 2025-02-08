@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:47:31 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/08 11:10:13 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/08 12:11:04 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	**ft_split(char const *s)
 		return (NULL);
 	result = (char **)malloc((count_word(s) + 1) * sizeof(char *));
 	if (result == NULL)
-		exit (1);
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (s[i])

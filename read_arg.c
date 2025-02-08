@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:25:27 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/08 10:00:03 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/08 13:46:09 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int countline_arg(int ac,char **av)
     } 
     return (count);
 }
-int filter(char *str)
+static int filter(char *str)
 {
     if (checking_digit(str) == 1)
     {
