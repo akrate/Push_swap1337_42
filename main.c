@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:45:06 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/08 14:08:07 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/12 16:03:46 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int check_duplicate_before_add(char **strnbr, int i, long new_data)
     }
     return (0);
 }
+// void send_to_stack(char );
 int main(int ac,char **av)
 {
    if (ac > 1)
@@ -51,7 +52,7 @@ int main(int ac,char **av)
             number = ft_atoi(strnbr[i]);
              if (check_duplicate_before_add(strnbr, i, number))
                 free_error(&stack_a, strnbr, str);
-            ft_lstadd_back(&stack_a,number);
+            ft_lstadd_back_stack(&stack_a,number);
             i++;
         }
         printflst(stack_a);

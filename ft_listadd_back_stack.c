@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_listadd_back.c                                  :+:      :+:    :+:   */
+/*   ft_listadd_back_stack.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:34:09 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/08 11:50:23 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/12 16:34:27 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void free_error(t_list **lst,char **split,char *str)
         exit (1);   
 }
 
-void	ft_lstadd_back(t_list **lst, int data)
+void	ft_lstadd_back_stack(t_list **lst, int data)
 {
     t_list *new;
 
@@ -46,12 +46,8 @@ void	ft_lstadd_back(t_list **lst, int data)
         t_list *current = *lst;
         while (current->next != NULL)
         {
-            // if(data == current->content)
-            //     free_error(lst ,split, str);
             current = current->next; 
         }
-        // if(data == current->content)
-        //     free_error(lst ,split ,str);
         current->next = new;
     }
 }
