@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:45:06 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/12 16:03:46 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/13 20:29:42 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int check_duplicate_before_add(char **strnbr, int i, long new_data)
     }
     return (0);
 }
-// void send_to_stack(char );
 int main(int ac,char **av)
 {
    if (ac > 1)

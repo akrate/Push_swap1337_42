@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:28:12 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/12 16:07:01 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/12 21:09:10 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ int long ft_atoi(const char *str);
 char	**ft_split(char const *s);
 void free_error(t_list **lst,char **split,char *str);
 ///////////////////////list
-void	ft_lstadd_back(t_list **lst, int data);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstnew(int content);
 void printflst(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back_stack(t_list **lst, int data);
 void rotate_b(t_list **stack);
-void rotate_a(t_list **stack);
+//void rotate_a(t_list **stack);
 
 
 

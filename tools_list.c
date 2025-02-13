@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 22:34:47 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/12 15:54:01 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/13 20:25:09 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,28 @@ t_list	*ft_lstlast(t_list *lst)
 	}
 	return (lst);
 }
+
+t_list	*ft_lstnew(int content)
+{
+    t_list *node;
+    
+    node = (t_list *) malloc(sizeof(t_list));
+    if (node == NULL)
+        return (NULL);
+    node->content = content;
+    node->next = NULL;
+    return (node);
+}
+void printflst(t_list *lst)
+{
+    while (lst)
+    {
+        printf("%d ", lst->content);
+        lst = lst->next;
+    }
+    printf("\n");
+}
+
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	new->next = *lst;
