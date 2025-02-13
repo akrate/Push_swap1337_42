@@ -6,13 +6,13 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:45:06 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/13 20:29:42 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/14 00:04:26 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_duplicate_before_add(char **strnbr, int i, long new_data)
+static int check_duplicate_before_add(char **strnbr, int i, long new_data)
 {
     int j = 0;
     while ( j < i)
@@ -29,33 +29,54 @@ int check_duplicate_before_add(char **strnbr, int i, long new_data)
     }
     return (0);
 }
+
+static char **opration_stack(int ac,char **av)
+{
+    char *str;
+    char **nbr;
+    
+    str = arg_accumulation(ac,av);
+    nbr = ft_split(str);
+    if (nbr == NULL)
+    {
+        free(str);
+        exit (1);
+    }
+    free(str);
+    return (nbr);
+}
+static t_list *usenbr_to_stack(char **str)
+{
+    t_list *stack;
+    int i;
+    long number;
+    
+    stack = NULL;
+    i = 0;
+    while (str[i] != NULL)
+    {
+        number = ft_atoi(str[i]);
+         if (check_duplicate_before_add(str, i, number))
+            free_error(&stack, str);
+        ft_lstadd_back_stack(&stack,number);
+        i++;
+    }
+    return (stack);
+    
+}
+
 int main(int ac,char **av)
 {
    if (ac > 1)
    {
         t_list *stack_a;
-        long number;
+        char **strnbr;
     
         stack_a = NULL;
-         
-        char *str = arg_accumulation(ac,av);
-        char **strnbr = ft_split(str);
-        if (strnbr == NULL)
-        {
-            free(str);
-            exit (1);
-        }
-        int i = 0;
-        while (strnbr[i] != NULL)
-        {
-            number = ft_atoi(strnbr[i]);
-             if (check_duplicate_before_add(strnbr, i, number))
-                free_error(&stack_a, strnbr, str);
-            ft_lstadd_back_stack(&stack_a,number);
-            i++;
-        }
+        strnbr = opration_stack(ac,av);
+        stack_a = usenbr_to_stack(strnbr);
         printflst(stack_a);
-        free_error(&stack_a, strnbr, str);
+        free_error(&stack_a, strnbr);
    }
    return (0);
 }

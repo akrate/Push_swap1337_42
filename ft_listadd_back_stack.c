@@ -6,13 +6,13 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:34:09 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/12 16:34:27 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/13 23:43:56 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void free_error(t_list **lst,char **split,char *str)
+void free_error(t_list **lst,char **split)
 {
     t_list *current = *lst;  
     t_list *next_node;
@@ -29,7 +29,6 @@ void free_error(t_list **lst,char **split,char *str)
             i++;
         }
         free(split);
-        free(str);
         write(2, "Error\n", 6);
         exit (1);   
 }

@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:28:12 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/12 21:09:10 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/13 23:43:13 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int checking_digit(char *str);
 int checking_sin(char *str);
 int long ft_atoi(const char *str);
 char	**ft_split(char const *s);
-void free_error(t_list **lst,char **split,char *str);
+void free_error(t_list **lst,char **split);
 ///////////////////////list
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstnew(int content);
