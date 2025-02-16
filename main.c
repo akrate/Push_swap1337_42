@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:45:06 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/14 00:04:26 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/16 23:44:29 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int check_duplicate_before_add(char **strnbr, int i, long new_data)
     return (0);
 }
 
-static char **opration_stack(int ac,char **av)
+static char **breaking_words(int ac,char **av)
 {
     char *str;
     char **nbr;
@@ -40,7 +40,7 @@ static char **opration_stack(int ac,char **av)
     if (nbr == NULL)
     {
         free(str);
-        exit (1);
+        exit(1);
     }
     free(str);
     return (nbr);
@@ -65,18 +65,85 @@ static t_list *usenbr_to_stack(char **str)
     
 }
 
+int check_sort(t_list *list)
+{
+    while (list && list->next)
+    {
+        if (list->content > list->next->content)
+            return (0);
+        list = list->next;
+    }
+    return (1);
+}
+void sort_2(t_list **stack)
+{
+    if ((*stack)->content > (*stack)->next->content)
+        swap_stack(*stack,"sa\n");
+}
+int git_max(t_list *stack)
+{
+    int i;
+    t_list *lst = stack;
+    
+    i = lst->content;
+    if (i < lst->next->content)
+        i = lst->next->content;
+    if (i < lst->next->next->content)
+        i = lst->next->next->content;
+    return (i);
+}
+void sort_3(t_list **stack)
+{
+    if ((*stack)->content > (*stack)->next->content
+        && (*stack)->content > (*stack)->next->next->content)
+    {
+        rotate(stack,"ra\n");
+    }
+    sort_2(stack);
+    if ((*stack)->content > (*stack)->next->next->content)
+    {
+        reverse_rotate(stack,"rra\n");
+    }
+    if ((*stack)->next->content > (*stack)->next->next->content)
+    {
+        reverse_rotate(stack,"rra\n");
+        swap_stack(*stack,"sa\n");
+    }
+}
+void opration_stack(t_list **stack)
+{
+    int i;
+
+    i = ft_lstsize(*stack);
+    if (i == 2)
+        sort_2(stack);
+    else if (i == 3)
+        sort_3(stack);
+}
+
 int main(int ac,char **av)
 {
    if (ac > 1)
    {
         t_list *stack_a;
+        t_list *stack_b;
         char **strnbr;
     
         stack_a = NULL;
-        strnbr = opration_stack(ac,av);
+        stack_b = NULL;
+        strnbr = breaking_words(ac,av);
         stack_a = usenbr_to_stack(strnbr);
+        if (check_sort(stack_a) == 0)
+        {
+            index_stack(&stack_a);
+            // printf("test1");
+            // pushb(&stack_a,&stack_b);
+            // opration_stack(&stack_a);
+            // target_stack(&stack_a,&stack_b);
+            // printf("test2");
+        }
         printflst(stack_a);
-        free_error(&stack_a, strnbr);
+        free_main(&stack_a,&stack_b, strnbr);
    }
    return (0);
 }

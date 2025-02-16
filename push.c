@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 10:47:04 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/13 21:13:08 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/16 15:06:13 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void push_to_a(t_list **stack_a, t_list **stack_b)
 void push_to_b(t_list **stack_b,t_list **stack_a)
 {
     t_list *tmp;
+
     if (!(*stack_a) || !stack_a)
         return ;
     if (!*stack_b)
@@ -54,4 +55,3 @@ void push_to_b(t_list **stack_b,t_list **stack_a)
     }
     write (1,"pb\n",3);
 }
-// *stack->data //(*stack)->data.

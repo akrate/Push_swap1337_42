@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sawp_stack.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/02 16:50:31 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/15 20:43:24 by aoussama         ###   ########.fr       */
+/*   Created: 2025/02/15 12:10:24 by aoussama          #+#    #+#             */
+/*   Updated: 2025/02/15 12:11:35 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap_stack(t_list *stack,char *str)
+void put_str(char *str)
 {
-    int tmp;
-    
-    if (stack && stack->next)
-    {
-        tmp = stack->content;
-        stack->content = stack->next->content;
-        stack->next->content = tmp;
-    }
-        // printflst(stack);
-    put_str(str);
-}
+    int i;
 
-void swap_stack_ss(t_list *stack_a,t_list *stack_b)
-{
-    swap_stack(stack_a,"s");
-    swap_stack(stack_b,"s\n");
+    i = 0;
+    while (str[i])
+    {
+        write (1,&str[i],1);
+        i++;
+    }
 }

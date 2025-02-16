@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 22:34:47 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/13 20:25:09 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/16 22:56:27 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_list	*ft_lstnew(int content)
     if (node == NULL)
         return (NULL);
     node->content = content;
+    node->index = 0;
     node->next = NULL;
     return (node);
 }
@@ -38,10 +39,18 @@ void printflst(t_list *lst)
 {
     while (lst)
     {
-        printf("%d ", lst->content);
+        printf("nbr = %d-------->index = %d\n", lst->content,lst->index);
         lst = lst->next;
     }
-    printf("\n");
+}
+void printflstindex(t_list *lst)
+{
+    printf("______________________________index\n");
+    while (lst)
+    {
+        printf("%d\n", lst->index);
+        lst = lst->next;
+    }
 }
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
@@ -49,16 +58,30 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void ft_lstadd_back(t_list **stack, t_list *new_node)
 {
-	if (lst == NULL || new == NULL)
-		return ;
-	if (*lst == NULL)
+    t_list *last;
+
+    if (!*stack)
+    {
+        *stack = new_node;
+        return;
+    }
+    last = *stack;
+    while (last->next)
+        last = last->next;
+    last->next = new_node;
+	last->next->next = NULL;
+}
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
 	{
-		*lst = new;
+		i++;
+		lst = lst->next;
 	}
-	else
-	{
-		ft_lstlast(*lst)->next = new;
-	}
+	return (i);
 }

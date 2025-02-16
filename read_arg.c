@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:25:27 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/13 20:28:23 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:28:46 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ char *arg_accumulation(int ac,char **av)
     i = 1;
     index = 0;
     str = (char *)malloc((countline_arg(ac,av) + (ac - 2) + 1) * sizeof(char));
-    if(str == NULL)
+    if (str == NULL)
         exit(1);
     while(i < ac)
     {
