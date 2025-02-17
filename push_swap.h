@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:28:12 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/16 23:37:52 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/17 20:22:59 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ typedef struct l_list
 {
     int content;
     int index;
-    int target;
+    int pos;
+    int pos_target;
+    int cost;
+    struct l_list *target;
     struct l_list *next;
 }   t_list;
 
@@ -56,4 +59,6 @@ void pushb(t_list **stack_a,t_list **satck_b);
 void index_stack(t_list **list);
 void target_stack(t_list **stack_a,t_list **stack_b);
 void printflstindex(t_list *lst);
+t_list *find_mini(t_list *stack);
+void printflstg(t_list *lst);
 #endif

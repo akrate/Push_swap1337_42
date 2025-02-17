@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 17:55:34 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/16 23:58:19 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/17 21:55:17 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ void index_stack(t_list **list)
             if (current->content != node->content)
             {
                 if (current->content > node->content)
-                {
                     i++;
-                }
             }
             node = node->next;
         }

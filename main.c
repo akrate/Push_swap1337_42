@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:45:06 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/16 23:44:29 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:45:26 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ int main(int ac,char **av)
         t_list *stack_a;
         t_list *stack_b;
         char **strnbr;
+        // int size_stack;
     
         stack_a = NULL;
         stack_b = NULL;
@@ -136,13 +137,25 @@ int main(int ac,char **av)
         if (check_sort(stack_a) == 0)
         {
             index_stack(&stack_a);
-            // printf("test1");
-            // pushb(&stack_a,&stack_b);
-            // opration_stack(&stack_a);
-            // target_stack(&stack_a,&stack_b);
+            // // printf("test1");
+            pushb(&stack_a,&stack_b);
+            opration_stack(&stack_a);
+            target_stack(&stack_a,&stack_b);
             // printf("test2");
+            // size_stack = ft_lstsize(stack_a);
+            // while (size_stack > 3)
+            // {
+            //     index_stack(&stack_a);
+            // // printf("test1");
+            //     pushb(&stack_a,&stack_b);
+            //     size_stack--;
+            // }
         }
         printflst(stack_a);
+        printf("------------------------------");
+        printflstg(stack_b);
+
+        // printflst(find_mini(stack_a));
         free_main(&stack_a,&stack_b, strnbr);
    }
    return (0);

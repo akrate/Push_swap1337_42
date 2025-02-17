@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 22:34:47 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/16 22:56:27 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:47:36 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,20 @@ void printflst(t_list *lst)
         lst = lst->next;
     }
 }
-void printflstindex(t_list *lst)
+void printflstg(t_list *lst)
 {
-    printf("______________________________index\n");
     while (lst)
     {
-        printf("%d\n", lst->index);
-        lst = lst->next;
+        // إذا كان target ليس فارغًا، قم بطباعة content الخاص به
+        if (lst->target)
+        {
+            printf("nbr = %d-------->target = %d\n", lst->content, lst->target->content);
+        }
+        
+        lst = lst->next;  // الانتقال إلى العنصر التالي في القائمة
     }
 }
+
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
