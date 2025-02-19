@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 22:34:47 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/17 13:47:36 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:58:45 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void printflst(t_list *lst)
 {
     while (lst)
     {
-        printf("nbr = %d-------->index = %d\n", lst->content,lst->index);
+        printf("nbr = %d\n", lst->content);
         lst = lst->next;
     }
 }

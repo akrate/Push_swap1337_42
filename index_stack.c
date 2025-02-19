@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 17:55:34 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/17 21:55:17 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/19 15:13:55 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void index_stack(t_list **list)
     if (!list || !*list)
         return;
     current = *list;
-    i = 1;
+    i = 0;
     while (current)
     {
         node = *list;
@@ -36,6 +36,6 @@ void index_stack(t_list **list)
         }
         current->index = i;
         current = current->next;
-        i = 1;
+        i = 0;
     }
 }

@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:28:12 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/17 20:22:59 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:54:21 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_lstsize(t_list *lst);
 void free_main(t_list **stack_a,t_list **stack_b,char **split);
 void put_str(char *str);
 void rotate(t_list **stack,char *str);
-void rote_atrr(t_list **stack_a,t_list **stack_b);
+void rotate_rr(t_list **stack_a,t_list **stack_b);
 void reverse_rotate(t_list **stack,char *str);
 void reverse_rotate_b_a(t_list **stack_a,t_list **stack_b);
 void swap_stack(t_list *stack,char *str);
@@ -58,7 +58,10 @@ void push_to_a(t_list **stack_a, t_list **stack_b);
 void pushb(t_list **stack_a,t_list **satck_b);
 void index_stack(t_list **list);
 void target_stack(t_list **stack_a,t_list **stack_b);
-void printflstindex(t_list *lst);
+// void printflstindex(t_list *lst);
 t_list *find_mini(t_list *stack);
 void printflstg(t_list *lst);
+void push_to_stack_a(t_list **stack_a, t_list **stack_b);
+int check_sort(t_list *list);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:45:06 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/17 13:45:26 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:56:34 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,21 @@ void opration_stack(t_list **stack)
     else if (i == 3)
         sort_3(stack);
 }
+void sort_stack(t_list **stack_a,t_list **stack_b)
+{
+    int i;
 
+    i = ft_lstsize(*stack_a);
+    if (i <= 3)
+        opration_stack(stack_a);
+    else
+    {   
+        index_stack(stack_a);
+        pushb(stack_a,stack_b);
+        sort_3(stack_a);
+        push_to_stack_a(stack_a,stack_b);
+    } 
+}
 int main(int ac,char **av)
 {
    if (ac > 1)
@@ -128,7 +142,6 @@ int main(int ac,char **av)
         t_list *stack_a;
         t_list *stack_b;
         char **strnbr;
-        // int size_stack;
     
         stack_a = NULL;
         stack_b = NULL;
@@ -136,26 +149,9 @@ int main(int ac,char **av)
         stack_a = usenbr_to_stack(strnbr);
         if (check_sort(stack_a) == 0)
         {
-            index_stack(&stack_a);
-            // // printf("test1");
-            pushb(&stack_a,&stack_b);
-            opration_stack(&stack_a);
-            target_stack(&stack_a,&stack_b);
-            // printf("test2");
-            // size_stack = ft_lstsize(stack_a);
-            // while (size_stack > 3)
-            // {
-            //     index_stack(&stack_a);
-            // // printf("test1");
-            //     pushb(&stack_a,&stack_b);
-            //     size_stack--;
-            // }
+            sort_stack(&stack_a,&stack_b);
         }
-        printflst(stack_a);
-        printf("------------------------------");
-        printflstg(stack_b);
-
-        // printflst(find_mini(stack_a));
+        // printflst(stack_a);
         free_main(&stack_a,&stack_b, strnbr);
    }
    return (0);
