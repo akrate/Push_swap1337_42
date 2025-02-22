@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:28:12 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/19 17:54:21 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/21 11:57:18 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct l_list
     int pos;
     int pos_target;
     int cost;
+    // int cost_b;
+    // int cost_a;
     struct l_list *target;
     struct l_list *next;
 }   t_list;
