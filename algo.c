@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 14:27:54 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/22 21:44:00 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/23 18:08:43 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,21 +95,21 @@ void cost_stack(t_list **stack_a, t_list **stack_b)
     t_list *b;
     int (target_pos_val),pos_val,size_a,size_b;
 
-    size_a = ft_lstsize(*stack_a) / 2;
-    size_b = ft_lstsize(*stack_b) / 2;
+    size_a = ft_lstsize(*stack_a);
+    size_b = ft_lstsize(*stack_b);
     b = *stack_b;
     while (b)
     {
-        if (b->pos <= size_b)
+        if (b->pos <= size_b / 2)
             pos_val = b->pos;
         else
             pos_val = size_b - b->pos;
-        if (b->target->pos <= size_a)
+        if (b->target->pos <= size_a / 2)
             target_pos_val = b->target->pos;
         else
             target_pos_val = size_a - b->target->pos;
-        if ((b->pos <= size_b && b->target->pos <= size_a) ||
-            (b->pos >= size_b && b->target->pos >= size_a))
+        if ((b->pos <= size_b / 2 && b->target->pos <= size_a / 2) ||
+            (b->pos >= size_b / 2 && b->target->pos >= size_a / 2))
             if (pos_val > target_pos_val)
                 b->cost = pos_val;
             else
@@ -144,14 +144,12 @@ void move_to_top(t_list **stack_a, t_list **stack_b, t_list *cheapest)
     size_a = ft_lstsize(*stack_a) / 2;
     size_b = ft_lstsize(*stack_b) / 2;
     
-    while (cheapest != *stack_b && cheapest->target != *stack_a)
-        if (cheapest->pos < size_b && cheapest->target->pos < size_a)
-            rotate_rr(stack_a, stack_b);
-        else if (cheapest->pos > size_b && cheapest->target->pos > size_a)
-            reverse_rotate_b_a(stack_a, stack_b);
-        else
-            break;
-
+   if (cheapest->pos <= size_b && cheapest->target->pos <= size_a )
+		while (cheapest != *stack_b && cheapest->target != *stack_a)
+			rotate_rr(stack_a, stack_b);
+	if (cheapest->pos >= size_b && cheapest->target->pos >= size_a )
+		while (cheapest != *stack_b && cheapest->target != *stack_a)
+			reverse_rotate_b_a(stack_a, stack_b);
     while (cheapest != *stack_b)
         if (cheapest->pos <= size_b)
             rotate(stack_b, "rb\n");
@@ -164,6 +162,50 @@ void move_to_top(t_list **stack_a, t_list **stack_b, t_list *cheapest)
         else
             rotate(stack_a, "ra\n");
 }
+
+// void move_to_top(t_list **stack_a, t_list **stack_b, t_list *cheapest)
+// {
+//     int size_a;
+//     int size_b;
+
+//     size_a = ft_lstsize(*stack_a) / 2;
+//     size_b = ft_lstsize(*stack_b) / 2;
+    
+//     while (cheapest != *stack_b && cheapest->target != *stack_a)
+//     {
+//         if (cheapest->pos < size_b && cheapest->target->pos < size_a)
+//         {
+//             rotate_rr(stack_a, stack_b);
+//         }
+//         else if (cheapest->pos > size_b && cheapest->target->pos > size_a)
+//         {
+//             reverse_rotate_b_a(stack_a, stack_b);
+//         }
+//         else if (cheapest->pos < size_b && cheapest->target->pos > size_a)
+//         {
+//             if (cheapest->pos <= size_b)
+//             {
+//                 rotate(stack_b, "rb\n");
+//             }
+//             else
+//             {
+//                 reverse_rotate(stack_b, "rrb\n");
+//             }    
+//         }
+//         else if (cheapest->pos > size_b && cheapest->target->pos < size_a)
+//         {
+//             if (cheapest->target->pos >= size_a)
+//             {
+//                 reverse_rotate(stack_a, "rra\n");
+//             }
+//             else
+//             {
+//                 rotate(stack_a, "ra\n");
+//             }
+//         }
+//     }
+// }
+
 
 void push_to_stack_a(t_list **stack_a, t_list **stack_b)
 {
