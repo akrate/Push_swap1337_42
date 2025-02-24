@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_listadd_back_stack.c                            :+:      :+:    :+:   */
+/*   ft_listadd_back_stack_Bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:34:09 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/24 11:32:07 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/24 20:58:01 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	free_error(t_list **lst, char **split)
 {
@@ -36,7 +36,7 @@ void	free_error(t_list **lst, char **split)
 	exit(1);
 }
 
-void	free_main(t_list **stack_a, t_list **stack_b, char **split)
+void	free_main_bo(t_list **stack_a, t_list **stack_b, char **split)
 {
 	int	i;
 
@@ -62,7 +62,6 @@ void	free_main(t_list **stack_a, t_list **stack_b, char **split)
 		i++;
 	}
 	free(split);
-	exit(1);
 }
 
 void	ft_lstadd_back_stack(t_list **lst, int data)

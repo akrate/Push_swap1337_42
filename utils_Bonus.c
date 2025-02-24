@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_Bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 12:10:24 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/24 12:06:08 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/24 20:13:36 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	put_str(char *str)
 {
@@ -44,32 +44,14 @@ int	checking_digit(char *str)
 	return (0);
 }
 
-t_list	*cheapes_stack(t_list **stack_b)
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_list	*cheapest;
-	t_list	*b;
+	int	i;
 
-	cheapest = *stack_b;
-	b = *stack_b;
-	while (b)
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 	{
-		if (b->cost < cheapest->cost)
-			cheapest = b;
-		b = b->next;
+		i++;
 	}
-	return (cheapest);
-}
-
-t_list	*find_mini(t_list *stack)
-{
-	t_list	*min;
-
-	min = stack;
-	while (stack)
-	{
-		if (stack->content < min->content)
-			min = stack;
-		stack = stack->next;
-	}
-	return (min);
+	return (s1[i] - s2[i]);
 }

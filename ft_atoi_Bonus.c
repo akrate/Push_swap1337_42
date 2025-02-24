@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sawp_stack.c                                       :+:      :+:    :+:   */
+/*   ft_atoi_Bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/02 16:50:31 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/24 14:30:08 by aoussama         ###   ########.fr       */
+/*   Created: 2025/02/03 15:21:03 by aoussama          #+#    #+#             */
+/*   Updated: 2025/02/24 20:12:33 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	swap_stack(t_list *stack, char *str)
+long	ft_atoi(const char *str)
 {
-	int	tmp;
+	int		i;
+	int		sin;
+	long	result;
 
-	if (stack && stack->next)
+	i = 0;
+	sin = 1;
+	result = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		tmp = stack->content;
-		stack->content = stack->next->content;
-		stack->next->content = tmp;
+		if (str[i] == '-')
+			sin = sin * -1;
+		i++;
 	}
-	put_str(str);
-}
-
-void	swap_stack_ss(t_list *stack_a, t_list *stack_b)
-{
-	swap_stack(stack_a, "s");
-	swap_stack(stack_b, "s\n");
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result *= 10;
+		result += str[i] - '0';
+		i++;
+	}
+	return (result * sin);
 }

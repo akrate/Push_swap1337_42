@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sawp_stack.c                                       :+:      :+:    :+:   */
+/*   sort_Bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/02 16:50:31 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/24 14:30:08 by aoussama         ###   ########.fr       */
+/*   Created: 2025/02/23 20:43:48 by aoussama          #+#    #+#             */
+/*   Updated: 2025/02/24 20:13:18 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	swap_stack(t_list *stack, char *str)
+int	check_sort(t_list *list)
 {
-	int	tmp;
-
-	if (stack && stack->next)
+	while (list && list->next)
 	{
-		tmp = stack->content;
-		stack->content = stack->next->content;
-		stack->next->content = tmp;
+		if (list->content > list->next->content)
+			return (0);
+		list = list->next;
 	}
-	put_str(str);
-}
-
-void	swap_stack_ss(t_list *stack_a, t_list *stack_b)
-{
-	swap_stack(stack_a, "s");
-	swap_stack(stack_b, "s\n");
+	return (1);
 }

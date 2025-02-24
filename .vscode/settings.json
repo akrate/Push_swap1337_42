@@ -4,6 +4,9 @@
         "chrono": "c",
         "span": "c",
         "variant": "c",
-        "functional": "c"
+        "functional": "c",
+        "push_swap_bonus.h": "c",
+        "checker.h": "c",
+        "libft.h": "c"
     }
 }
