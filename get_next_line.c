@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 14:08:51 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/24 21:50:42 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/24 22:15:04 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ static char	*extract_next_line(char **remainder)
 	}
 	line = get_left_line(*remainder);
 	*remainder = get_right_line(*remainder);
+	if (!*remainder || !**remainder)
+	{
+		free(*remainder);
+		*remainder = NULL;
+	}
 	return (line);
 }
 
