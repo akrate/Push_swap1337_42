@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:45:06 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/24 21:21:46 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/25 13:42:51 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ static int	check_duplicate_before_add(char **strnbr, int i, long new_data)
 	int	j;
 
 	j = 0;
-    if (new_data < INT_MIN || new_data > INT_MAX)
-		{
-			return (1);
-		}
+	if (new_data < INT_MIN || new_data > INT_MAX)
+		return (1);
 	while (j < i)
 	{
 		if (new_data == ft_atoi(strnbr[j]))
@@ -85,13 +83,13 @@ int	main(int ac, char **av)
 		stack_a = usenbr_to_stack(strnbr);
 		if (read_line(&stack_a, &stack_b, strnbr) == 1)
 		{
-			write (2,"Error\n",6);
+			write (2, "Error\n", 6);
 			return (1);
 		}
 		if (check_sort(stack_a) && !stack_b)
-			write (1,"OK\n",3);
+			write (1, "OK\n", 3);
 		else
-			write (1,"KO\n",3);
+			write (1, "KO\n", 3);
 		free_main_bo(&stack_a, &stack_b, strnbr);
 	}
 	return (0);

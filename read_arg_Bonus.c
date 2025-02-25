@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:25:27 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/24 20:13:06 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/25 13:41:45 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	checking_sin(char *str)
 		}
 		else if (str[i] == '+' || str[i] == '-')
 		{
-			if (str[i + 1] == ' ' || str[i + 1] == '\0' || str[i + 1] == '-' || str[i + 1] == '+')
+			if (str[i + 1] == ' ' || str[i + 1] == '\0'
+				|| str[i + 1] == '-' || str[i + 1] == '+')
 			{
 				write(2, "Error\n", 6);
 				return (1);

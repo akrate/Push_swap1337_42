@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:45:06 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/23 21:09:39 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/25 13:44:28 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ static int	check_duplicate_before_add(char **strnbr, int i, long new_data)
 	int	j;
 
 	j = 0;
-    if (new_data < INT_MIN || new_data > INT_MAX)
-		{
-			return (1);
-		}
+	if (new_data < INT_MIN || new_data > INT_MAX)
+		return (1);
 	while (j < i)
 	{
 		if (new_data == ft_atoi(strnbr[j]))

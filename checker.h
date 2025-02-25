@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:28:12 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/24 22:07:03 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/25 13:41:15 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct l_list
 	struct l_list	*next;
 }					t_list;
 
-
 char				*arg_accumulation(int ac, char **av);
 int					checking_digit(char *str);
 int					checking_sin(char *str);
@@ -42,9 +41,11 @@ void				ft_lstadd_front(t_list **lst, t_list *new);
 t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_back_stack(t_list **lst, int data);
 void				ft_lstadd_back(t_list **stack, t_list *new_node);
-int 				read_line(t_list **stack_a,t_list **stack_b, char **strnbr);
+int					read_line(t_list **stack_a, t_list **stack_b,
+						char **strnbr);
 int					ft_lstsize(t_list *lst);
-void				free_main_bo(t_list **stack_a, t_list **stack_b, char **split);
+void				free_main_bo(t_list **stack_a, t_list **stack_b,
+						char **split);
 void				put_str(char *str);
 void				rotate(t_list **stack);
 void				rotate_rr(t_list **stack_a, t_list **stack_b);
@@ -58,12 +59,12 @@ int					check_sort(t_list *list);
 void				sort_stack(t_list **stack_a, t_list **stack_b);
 int					ft_strcmp(char *s1, char *s2);
 //////////////////////////////////next_line
-char	*get_next_line(int fd);
-int		ft_strchr(char *str);
-char	*ft_strjoin(char *str1, char *str2);
-char	*get_left_line(char *str);
-char	*get_right_line(char *str);
-int		ft_strlen(char *str);
+char				*get_next_line(int fd);
+int					ft_strchr(char *str);
+char				*ft_strjoin(char *str1, char *str2);
+char				*get_left_line(char *str);
+char				*get_right_line(char *str);
+int					ft_strlen(char *str);
 
 ////////////////////////////////////
 
