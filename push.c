@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 10:47:04 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/24 21:58:35 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/25 20:05:07 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	pushb(t_list **stack_a, t_list **stack_b)
 	size = ft_lstsize(*stack_a);
 	while (size > 3)
 	{
-		if ((*stack_a)->index <= size / 2)
+		if ((*stack_a)->index < size / 2)
 		{
 			push_to_b(stack_b, stack_a);
 			index_stack(stack_a);

@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:28:12 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/24 14:23:55 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:18:34 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include <limits.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -34,7 +33,6 @@ int					checking_sin(char *str);
 int long			ft_atoi(const char *str);
 char				**ft_split(char const *s);
 void				free_error(t_list **lst, char **split);
-///////////////////////list
 t_list				*ft_lstnew(int content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 t_list				*ft_lstlast(t_list *lst);

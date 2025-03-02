@@ -1,7 +1,7 @@
 NAME = push_swap
 NAME_BONUS = checker 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 SRC = ft_atoi.c main.c push.c read_arg.c sawp_stack.c tools_list.c \
@@ -15,21 +15,23 @@ OBJ = $(SRC:.c=.o)
 
 OBJ_BONUS = $(BONUS:.c=.o)
 
+all: $(NAME)
+
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
+
 bonus: $(OBJ_BONUS)
 	$(CC) $(CFLAGS) $(OBJ_BONUS) -o $(NAME_BONUS)
-
-all: $(NAME)
+	@touch bonus
 
 clean: 
 	@$(RM) *.o
 
 fclean : clean
-	@$(RM) $(NAME) $(NAME_BONUS)
+	@$(RM) $(NAME) $(NAME_BONUS) bonus
 
 re : fclean all
 

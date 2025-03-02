@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 14:27:54 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/23 21:28:27 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/25 20:04:17 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,13 +128,13 @@ void	push_to_stack_a(t_list **stack_a, t_list **stack_b)
 		move_to_top(stack_a, stack_b, cheapest);
 		push_to_a(stack_a, stack_b);
 	}
-	mini_node = find_mini(*stack_a);
 	if (!check_sort(*stack_a))
 	{
+		mini_node = find_mini(*stack_a);
 		mid = ft_lstsize(*stack_a) / 2;
 		while (*stack_a != mini_node)
 		{
-			if (mini_node->index <= mid)
+			if (mini_node->index < mid)
 				reverse_rotate(stack_a, "rra\n");
 			else
 				rotate(stack_a, "ra\n");

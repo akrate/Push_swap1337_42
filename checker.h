@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:28:12 by aoussama          #+#    #+#             */
-/*   Updated: 2025/02/25 13:41:15 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:18:41 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 # define CHECKER_H
 
 # include <limits.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stddef.h>
 
 typedef struct l_list
 {
@@ -35,7 +33,6 @@ int					checking_sin(char *str);
 int long			ft_atoi(const char *str);
 char				**ft_split(char const *s);
 void				free_error(t_list **lst, char **split);
-///////////////////////list
 t_list				*ft_lstnew(int content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 t_list				*ft_lstlast(t_list *lst);
@@ -58,15 +55,12 @@ void				push_to_a(t_list **stack_a, t_list **stack_b);;
 int					check_sort(t_list *list);
 void				sort_stack(t_list **stack_a, t_list **stack_b);
 int					ft_strcmp(char *s1, char *s2);
-//////////////////////////////////next_line
 char				*get_next_line(int fd);
 int					ft_strchr(char *str);
 char				*ft_strjoin(char *str1, char *str2);
 char				*get_left_line(char *str);
 char				*get_right_line(char *str);
 int					ft_strlen(char *str);
-
-////////////////////////////////////
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
